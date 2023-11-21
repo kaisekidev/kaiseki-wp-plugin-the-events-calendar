@@ -12,10 +12,8 @@ final class DefaultTemplateFactory
     public function __invoke(ContainerInterface $container): DefaultTemplate
     {
         $config = Config::get($container);
-        /** @var array<mixed>|null $defaultBlocks */
-        $defaultBlocks = $config->get('the_events_calendar/default_blocks', null, true);
-        /** @var list<string>|null $removeBlocks */
-        $removeBlocks = $config->get('the_events_calendar/remove_default_blocks', null, true);
-        return new DefaultTemplate($defaultBlocks, $removeBlocks);
+        /** @var list<array{0: string, 1?: array<string, mixed>}> $defaultTemplate */
+        $defaultTemplate = $config->array('the_events_calendar/default_template');
+        return new DefaultTemplate($defaultTemplate);
     }
 }

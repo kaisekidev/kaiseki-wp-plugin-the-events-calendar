@@ -16,12 +16,15 @@ final class DisableBlockRenderingInFrontend implements HookCallbackProviderInter
     /**
      * @param bool|list<string> $config
      */
-    public function __construct(private readonly bool|array $config)
+    public function __construct(private readonly bool|array|null $config)
     {
     }
 
     public function registerHookCallbacks(): void
     {
+        if ($this->config !== true && !is_array($this->config)) {
+            return;
+        }
         add_filter('render_block', [$this, 'disableBlockRendering'], 10, 2);
     }
 

@@ -13,7 +13,7 @@ final class FilterOptionsFactory
     {
         $config = Config::get($container);
         /** @var array<string, string> $options */
-        $options = $config->get('the_events_calendar/options', []);
+        $options = $config->get('the_events_calendar/options');
         return new FilterOptions($options);
     }
 }

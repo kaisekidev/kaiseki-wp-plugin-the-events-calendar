@@ -13,7 +13,7 @@ final class DisableBlockRenderingInFrontendFactory
     {
         $config = Config::get($container);
         /** @var bool|list<string> $option */
-        $option = $config->get('the_events_calendar/disable_block_rendering', false);
+        $option = $config->get('the_events_calendar/disable_block_rendering');
         return new DisableBlockRenderingInFrontend($option);
     }
 }

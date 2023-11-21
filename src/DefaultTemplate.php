@@ -6,21 +6,13 @@ namespace Kaiseki\WordPress\TheEventsCalendar;
 
 use Kaiseki\WordPress\Hook\HookCallbackProviderInterface;
 
-use function array_column;
-use function array_search;
-use function array_splice;
-use function is_array;
-use function is_int;
-
 final class DefaultTemplate implements HookCallbackProviderInterface
 {
     /**
-     * @param array<mixed>|null $defaultBlocks
-     * @param array<string>|null $removeBlocks
+     * @param list<array{0: string, 1?: array<string, mixed>}> $defaultTemplate
      */
     public function __construct(
-        private readonly ?array $defaultBlocks,
-        private readonly ?array $removeBlocks
+        private readonly array $defaultTemplate,
     ) {
     }
 
@@ -30,45 +22,10 @@ final class DefaultTemplate implements HookCallbackProviderInterface
     }
 
     /**
-     * @param array<mixed> $blocks
-     *
-     * @return array<mixed>
+     * @return list<array{0: string, 1?: array<string, mixed>}>
      */
-    public function updateDefaultBlocks(array $blocks): array
+    public function updateDefaultBlocks(): array
     {
-        if (is_array($this->defaultBlocks)) {
-            return $this->defaultBlocks;
-        }
-        if (!is_array($this->removeBlocks)) {
-            return $blocks;
-        }
-        foreach ($this->removeBlocks as $name) {
-            $blocks = $this->removeFromBlock($name, $blocks);
-        }
-        return $blocks;
-    }
-
-    /**
-     * @param string $name
-     * @param array<mixed>  $blocks
-     *
-     * @return array<mixed>
-     */
-    private function removeFromBlock(string $name, array $blocks): array
-    {
-        $names = array_column($blocks, 0);
-        $index = array_search($name, $names, true);
-
-        if (!is_int($index)) {
-            return $blocks;
-        }
-
-        array_splice(
-            $blocks,
-            $index,
-            1
-        );
-
-        return $blocks;
+        return $this->defaultTemplate;
     }
 }
