@@ -17,7 +17,11 @@ final class ConfigProvider
             ],
             'dependencies' => [
                 'aliases' => [],
-                'factories' => [],
+                'factories' => [
+                    DefaultTemplate::class => DefaultTemplateFactory::class,
+                    DisableBlockRenderingInFrontend::class => DisableBlockRenderingInFrontendFactory::class,
+                    FilterOptions::class => FilterOptionsFactory::class,
+                ],
             ],
         ];
     }

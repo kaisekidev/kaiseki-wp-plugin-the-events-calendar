@@ -8,7 +8,7 @@ use Kaiseki\WordPress\Hook\HookCallbackProviderInterface;
 
 use function array_key_exists;
 
-final class PluginOptions implements HookCallbackProviderInterface
+final class FilterOptions implements HookCallbackProviderInterface
 {
     /**
      * @param array<string, string> $options
