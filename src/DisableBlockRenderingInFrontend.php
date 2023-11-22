@@ -29,6 +29,7 @@ final class DisableBlockRenderingInFrontend implements HookCallbackProviderInter
     }
 
     /**
+     * @param string               $blockContent
      * @param array<string, mixed> $block
      */
     public function disableBlockRendering(string $blockContent, array $block): string
