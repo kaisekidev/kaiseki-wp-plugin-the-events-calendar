@@ -11,9 +11,10 @@ final class DefaultTemplateFactory
 {
     public function __invoke(ContainerInterface $container): DefaultTemplate
     {
-        $config = Config::get($container);
+        $config = Config::fromContainer($container);
         /** @var list<array{0: string, 1?: array<string, mixed>}> $defaultTemplate */
-        $defaultTemplate = $config->array('the_events_calendar/default_template');
+        $defaultTemplate = $config->array('the_events_calendar.default_template');
+
         return new DefaultTemplate($defaultTemplate);
     }
 }

@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace Kaiseki\WordPress\TheEventsCalendar;
 
-use Kaiseki\WordPress\Hook\HookCallbackProviderInterface;
+use Kaiseki\WordPress\Hook\HookProviderInterface;
 
-final class DefaultTemplate implements HookCallbackProviderInterface
+use function add_filter;
+
+final class DefaultTemplate implements HookProviderInterface
 {
     /**
      * @param list<array{0: string, 1?: array<string, mixed>}> $defaultTemplate
@@ -16,7 +18,7 @@ final class DefaultTemplate implements HookCallbackProviderInterface
     ) {
     }
 
-    public function registerHookCallbacks(): void
+    public function addHooks(): void
     {
         add_filter('tribe_events_editor_default_template', [$this, 'updateDefaultBlocks']);
     }

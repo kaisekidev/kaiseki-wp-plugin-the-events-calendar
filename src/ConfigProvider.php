@@ -12,6 +12,11 @@ final class ConfigProvider
     public function __invoke(): array
     {
         return [
+            'the_events_calendar' => [
+                'default_template' => [],
+                'disable_block_rendering' => false,
+                'options' => [],
+            ],
             'hook' => [
                 'provider' => [],
             ],

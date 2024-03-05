@@ -4,14 +4,15 @@ declare(strict_types=1);
 
 namespace Kaiseki\WordPress\TheEventsCalendar;
 
-use Kaiseki\WordPress\Hook\HookCallbackProviderInterface;
+use Kaiseki\WordPress\Hook\HookProviderInterface;
 
+use function add_filter;
 use function in_array;
 use function is_array;
 use function is_string;
 use function str_starts_with;
 
-final class DisableBlockRenderingInFrontend implements HookCallbackProviderInterface
+final class DisableBlockRenderingInFrontend implements HookProviderInterface
 {
     /**
      * @param bool|list<string> $config
@@ -20,7 +21,7 @@ final class DisableBlockRenderingInFrontend implements HookCallbackProviderInter
     {
     }
 
-    public function registerHookCallbacks(): void
+    public function addHooks(): void
     {
         if ($this->config !== true && !is_array($this->config)) {
             return;
@@ -37,7 +38,7 @@ final class DisableBlockRenderingInFrontend implements HookCallbackProviderInter
         if (
             !isset($block['blockName'])
             || !is_string($block['blockName'])
-            || str_starts_with($block['blockName'], 'tribe/')
+            || !str_starts_with($block['blockName'], 'tribe/')
         ) {
             return $blockContent;
         }

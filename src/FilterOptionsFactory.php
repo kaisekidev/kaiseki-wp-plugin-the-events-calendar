@@ -11,9 +11,10 @@ final class FilterOptionsFactory
 {
     public function __invoke(ContainerInterface $container): FilterOptions
     {
-        $config = Config::get($container);
+        $config = Config::fromContainer($container);
         /** @var array<string, string> $options */
-        $options = $config->array('the_events_calendar/options');
+        $options = $config->array('the_events_calendar.options');
+
         return new FilterOptions($options);
     }
 }

@@ -4,7 +4,13 @@
         "static", "self", "parent",
         "array", "string", "int", "float", "bool", "iterable", "callable", "void", "object", "mixed",
         "add_filter",
-        "is_plugin_active"
+        "is_plugin_active",
+        "get_the_title",
+        "Tribe\\Utils\\Date_I18n_Immutable",
+        "tribe_get_cost",
+        "tribe_get_gcal_link",
+        "tribe_get_single_ical_link",
+        "tribe_is_past_event"
     ],
     "php-core-extensions" : [
         "Core",

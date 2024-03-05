@@ -11,9 +11,10 @@ final class DisableBlockRenderingInFrontendFactory
 {
     public function __invoke(ContainerInterface $container): DisableBlockRenderingInFrontend
     {
-        $config = Config::get($container);
+        $config = Config::fromContainer($container);
         /** @var bool|list<string> $option */
-        $option = $config->get('the_events_calendar/disable_block_rendering');
+        $option = $config->get('the_events_calendar.disable_block_rendering');
+
         return new DisableBlockRenderingInFrontend($option);
     }
 }
