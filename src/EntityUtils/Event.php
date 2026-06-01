@@ -21,14 +21,12 @@ final class Event
 
     public function title(?int $postId = null): string
     {
-        // @phpstan-ignore-next-line
-        return get_the_title($postId ?? $this->postId);
+        return get_the_title($postId ?? $this->postId ?? 0);
     }
 
     public function isPastEvent(?int $postId = null): bool
     {
-        // @phpstan-ignore-next-line
-        return tribe_is_past_event($postId ?? $this->postId);
+        return tribe_is_past_event($postId ?? $this->postId) === true;
     }
 
     public function cost(?int $postId = null): string

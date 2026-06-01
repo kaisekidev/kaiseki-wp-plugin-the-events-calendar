@@ -1,8 +1,9 @@
+includes:
+    - vendor/kaiseki/php-coding-standard/phpstan/kaiseki.neon
 parameters:
-    level: max
-    treatPhpDocTypesAsCertain: false
     paths:
-        - src/
-        - tests/
+        - src
     scanDirectories:
         - vendor/wordpress/plugins
+    stubFiles:
+        - stubs/the-events-calendar.php
