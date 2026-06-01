@@ -26,7 +26,7 @@ final class Event
 
     public function isPastEvent(?int $postId = null): bool
     {
-        return tribe_is_past_event($postId ?? $this->postId ?? 0) === true;
+        return tribe_is_past_event($postId ?? $this->postId) === true;
     }
 
     public function cost(?int $postId = null): string
