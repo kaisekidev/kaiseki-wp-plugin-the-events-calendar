@@ -7,9 +7,12 @@
         "is_plugin_active",
         "get_the_title",
         "Tribe\\Utils\\Date_I18n_Immutable",
+        "tribe",
+        "tribe_events_editor_default_template",
         "tribe_get_cost",
         "tribe_get_gcal_link",
         "tribe_get_single_ical_link",
+        "tribe_get_single_option",
         "tribe_is_past_event"
     ],
     "php-core-extensions" : [
