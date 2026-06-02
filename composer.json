@@ -50,7 +50,7 @@
     "roots/wordpress-no-content": "@stable",
     "szepeviktor/phpstan-wordpress": "^2.0",
     "thecodingmachine/phpstan-safe-rule": "^1.4",
-    "wpackagist-plugin/the-events-calendar": "6.2.8.2"
+    "wpackagist-plugin/the-events-calendar": "6.16.3"
   },
   "config": {
     "sort-packages": true,
